@@ -17,6 +17,8 @@ LINE = (
 
 def main() -> None:
     assert 1 <= len(LINE) <= 200, "entry line must be 1-200 characters"
+    assert "\n" not in LINE, "entry line must be a single line"
+    assert LINE == LINE.strip(), "entry line must have no edge whitespace"
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         f.write(LINE + "\n")
